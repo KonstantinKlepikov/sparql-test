@@ -166,5 +166,6 @@ logs
 
 # CurrentProject
 /tests/temp
-/examples/
+/examples/*
+!examples/queries.sparqlbook
 /.idea/

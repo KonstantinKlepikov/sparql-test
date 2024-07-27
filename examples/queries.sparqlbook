@@ -1,0 +1,32 @@
+[
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last ?workTel\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last ;\n     ab:workTel ?workTel .\n}\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last ?workTel\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last .\n  OPTIONAL\n  { ?s ab:workTel ?workTel . }\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last ?workTel ?nick\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last .\n  OPTIONAL\n  {\n     ?s ab:workTel ?workTel ;\n        ab:nick ?nick .\n  }\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last ?workTel ?nick\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last .\n  OPTIONAL { ?s ab:workTel ?workTel . }\n  OPTIONAL { ?s ab:nick ?nick . }\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last\nWHERE\n{\n  ?s ab:lastName ?last .\n  OPTIONAL { ?s ab:nick ?first . }\n  OPTIONAL { ?s ab:firstName ?first . }\n}",
+    "metadata": {}
+  }
+]
