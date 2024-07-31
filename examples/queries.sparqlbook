@@ -28,5 +28,23 @@
     "language": "sparql",
     "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last\nWHERE\n{\n  ?s ab:lastName ?last .\n  OPTIONAL { ?s ab:nick ?first . }\n  OPTIONAL { ?s ab:firstName ?first . }\n}",
     "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last .\n\n  OPTIONAL { ?s ab:workTel ?workNum . }\n  FILTER (!bound(?workNum))\n}\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last\n\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last .\n  FILTER NOT EXISTS { ?s ab:workTel ?workNum }\n}\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last\n\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last .\n  MINUS { ?s ab:workTel ?workNum }\n}\n",
+    "metadata": {}
   }
 ]
