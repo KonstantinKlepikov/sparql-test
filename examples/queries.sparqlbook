@@ -46,5 +46,89 @@
     "language": "sparql",
     "value": "# [endpoint=ex054.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last\n\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last .\n  MINUS { ?s ab:workTel ?workNum }\n}\n",
     "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex069.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?last ?first ?courseName\nWHERE\n{\n  ?s ab:firstName ?first ;\n     ab:lastName ?last ;\n     ab:takingCourse ?course .\n\n  ?course ab:courseTitle ?courseName .\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex074.ttl]\n\nPREFIX dc: <http://purl.org/dc/elements/1.1/>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX : <http://learningsparql.com/ns/papers#>\n\nSELECT ?s ?title\nWHERE { ?s (dc:title | rdfs:label) ?title . }\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex074.ttl]\n\nPREFIX : <http://learningsparql.com/ns/papers#>\nPREFIX c: <http://learningsparql.com/ns/citations#>\n\nSELECT ?s\nWHERE { ?s c:cites :paperA . }",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex074.ttl]\n\nPREFIX : <http://learningsparql.com/ns/papers#>\nPREFIX c: <http://learningsparql.com/ns/citations#>\n\nSELECT ?s\nWHERE { ?s c:cites+ :paperA . }",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex074.ttl]\n\nPREFIX : <http://learningsparql.com/ns/papers#>\nPREFIX c: <http://learningsparql.com/ns/citations#>\n\nSELECT ?s\nWHERE { ?s c:cites/c:cites/c:cites :paperA . }",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex074.ttl]\n\nPREFIX : <http://learningsparql.com/ns/papers#>\nPREFIX c: <http://learningsparql.com/ns/citations#>\n\nSELECT ?s\nWHERE { :paperA ^c:cites ?s }",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex074.ttl]\n\nPREFIX : <http://learningsparql.com/ns/papers#>\nPREFIX c: <http://learningsparql.com/ns/citations#>\n\nSELECT ?s\nWHERE\n{\n  ?s c:cites/^c:cites :paperF .\n  FILTER(?s != :paperF)\n}\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex041.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?addressVal\nWHERE { ?s ab:address ?addressVal }",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex041.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?firstName ?lastName ?streetAddress ?city ?region ?postalCode\nWHERE\n{\n  ?s ab:firstName ?firstName ;\n     ab:lastName ?lastName ;\n     ab:address ?address .\n\n  ?address ab:postalCode ?postalCode ;\n           ab:city ?city ;\n           ab:streetAddress ?streetAddress ;\n           ab:region ?region .\n}\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex069.ttl]\n\nSELECT DISTINCT ?p\nWHERE\n{ ?s ?p ?o . }\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex069.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT DISTINCT ?first ?last\nWHERE\n{\n  ?s ab:takingCourse ?class ;\n     ab:firstName ?first ;\n     ab:lastName ?last .\n}\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex069.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\nPREFIX d:  <http://learningsparql.com/ns/data#>\n\nSELECT *\nWHERE\n{\n       { ?person ab:firstName ?first ; ab:lastName ?last . }\n\n       UNION\n\n       { ?course ab:courseTitle ?courseName . }\n\n}\n",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex100.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last ?instrument\nWHERE\n{\n  { ?person ab:firstName ?first ;\n            ab:lastName ?last ;\n            ab:instrument \"trumpet\" ;\n            ab:instrument ?instrument .\n  }\n\n  UNION\n\n  { ?person ab:firstName ?first ;\n            ab:lastName ?last ;\n            ab:instrument \"sax\" ;\n            ab:instrument ?instrument .\n  }\n\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "sparql",
+    "value": "# [endpoint=ex100.ttl]\n\nPREFIX ab: <http://learningsparql.com/ns/addressbook#>\n\nSELECT ?first ?last ?instrument\nWHERE\n{\n    ?person ab:firstName ?first ;\n            ab:lastName ?last ;\n            ab:instrument ?instrument .\n\n    { ?person ab:instrument \"sax\" . }\n\n    UNION\n\n    { ?person ab:instrument \"trumpet\" . }\n\n}",
+    "metadata": {}
   }
 ]
